@@ -1,6 +1,6 @@
 <template>
-    <div class="saying">
-        <div class="saying_content">
+    <div class="free">
+        <div class="free_content">
             <div v-for="(item, index) in apiList" :key="index" class="content_item" @click="toShow(item)">
                 <div>{{ item.text }}</div>
                 <div>
@@ -112,12 +112,12 @@ const toShow = (item) => {
 
 <style scoped lang="scss">
 @import "@/styles/_variables.scss";
-.saying {
+.free {
     width: 100%;
     height: calc(100vh - 50px);
     position: relative;
 
-    .saying_content {
+    .free_content {
         display: flex;
         flex-wrap: wrap;
         gap: 25px;

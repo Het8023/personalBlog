@@ -3,7 +3,7 @@
         <div v-for="(item, index) in freeList" :key="index" class="free_list">
             <div class="free_title">{{ item.name }}</div>
             <div class="free_children">
-                <div v-for="ele in item.children" class="free_children_item" @click="toBlank(ele.url)">{{ ele.name }}</div>
+                <div v-for="ele in item.children" class="free_children_item" @click="toBlank(ele)">{{ ele.name }}</div>
             </div>
         </div>
     </div>
@@ -73,12 +73,68 @@ const freeList = ref([
                 name: "小众头像API接口",
                 url: "https://api.vvhan.com/api/avatar/niche",
             },
+            {
+                name: "一言句子API接口",
+                url: "https://api.vvhan.com/api/ian/rand",
+            },
+            {
+                name: " 骚话API接口",
+                url: "https://api.vvhan.com/api/text/sexy",
+            },
+            {
+                name: "情话API接口",
+                url: "https://api.vvhan.com/api/text/love",
+            },
+            {
+                name: "笑话API接口",
+                url: "https://api.vvhan.com/api/text/joke",
+            },
+            {
+                name: "舔狗日记API接口",
+                url: "https://api.vvhan.com/api/text/dog",
+            },
+            {
+                name: "满屏雪花下雪API接口",
+                url: "https://api.vvhan.com/api/script/snow",
+                type: "special",
+            },
+            {
+                name: "透明波浪特效API接口",
+                url: "https://api.vvhan.com/api/script/bolang",
+                type: "special",
+            },
+            {
+                name: "樱花效果API接口",
+                url: "https://api.vvhan.com/api/script/yinghua",
+                type: "special",
+            },
+            {
+                name: "梅花特效API接口",
+                url: "https://api.vvhan.com/api/script/meihua",
+                type: "special",
+            },
+            {
+                name: "春节灯笼API接口",
+                url: "https://api.vvhan.com/api/script/denglong",
+                type: "special",
+            },
         ],
+    },
+    {
+        name: "实时类",
+        children: [],
     },
 ]);
 
-const toBlank = (url) => {
-    window.open(url);
+const toBlank = (ele) => {
+    if (ele.type == "special") {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = ele.url;
+        document.head.appendChild(script);
+    } else {
+        window.open(ele.url);
+    }
 };
 </script>
 
@@ -87,7 +143,7 @@ const toBlank = (url) => {
 .free {
     width: 100%;
     height: calc(100vh - 50px);
-    position: relative;
+    overflow: auto;
     .free_list {
         margin: 20px auto;
         max-width: 1200px;

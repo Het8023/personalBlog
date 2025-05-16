@@ -73,3 +73,10 @@ export const getYhylApi = () => {
         method: "get",
     });
 };
+// 一言句子API接口
+export const getRandApi = () => {
+    return request({
+        url: "https://api.vvhan.com/api/ian/rand",
+        method: "get",
+    });
+};
