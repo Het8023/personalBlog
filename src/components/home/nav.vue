@@ -41,6 +41,11 @@ const navList = ref([
         path: "/free",
         icon: "House",
     },
+    {
+        name: "热榜",
+        path: "/hot",
+        icon: "House",
+    },
 ]);
 
 // 前往页面

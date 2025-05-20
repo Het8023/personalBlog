@@ -31,6 +31,12 @@ const router = createRouter({
             name: "free",
             component: () => import("../views/free/index.vue"),
         },
+        // 热榜
+        {
+            path: "/hot",
+            name: "hot",
+            component: () => import("../views/hot/index.vue"),
+        },
     ],
 });
 
